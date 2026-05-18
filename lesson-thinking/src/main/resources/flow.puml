@@ -1,0 +1,50 @@
+@startuml expander_flow
+skinparam usecaseFontSize 14
+skinparam usecaseStereotypeFontSize 12
+skinparam hexagonFontSize 14
+skinparam hexagonStereotypeFontSize 12
+title "expander flow"
+footer
+
+end footer
+circle start<<input>> as __START__
+circle stop as __END__
+usecase "问题检索"<<Node>>
+package loop_search_refinement_agent [
+{{
+circle " " as __START__
+circle exit as __END__
+usecase "loop_search_refinement_agent"<<Node>>
+usecase "_loop_init__901205084"<<Node>>
+usecase "_loop_dispatch__901205084"<<Node>>
+package 问题检索 [
+{{
+circle " " as __START__
+circle exit as __END__
+usecase "问题检索"<<Node>>
+usecase "search_agent"<<Node>>
+usecase "reflection"<<Node>>
+"__START__" -down-> "问题检索"
+"问题检索" -down-> "search_agent"
+"search_agent" -down-> "reflection"
+"reflection" -down-> "__END__"
+}}
+]
+hexagon "check state" as condition1<<Condition>>
+"__START__" -down-> "loop_search_refinement_agent"
+"loop_search_refinement_agent" -down-> "_loop_init__901205084"
+"_loop_init__901205084" -down-> "_loop_dispatch__901205084"
+"问题检索" -down-> "_loop_dispatch__901205084"
+"_loop_dispatch__901205084" .down.> "condition1"
+"condition1" .down.> "问题检索": "continue"
+'"_loop_dispatch__901205084" .down.> "问题检索": "continue"
+"condition1" .down.> "__END__": "break"
+'"_loop_dispatch__901205084" .down.> "__END__": "break"
+}}
+]
+usecase "summary"<<Node>>
+"__START__" -down-> "问题检索"
+"问题检索" -down-> "loop_search_refinement_agent"
+"loop_search_refinement_agent" -down-> "summary"
+"summary" -down-> "__END__"
+@enduml

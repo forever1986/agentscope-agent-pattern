@@ -1,0 +1,15 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+interface McpTransport
+interface McpClientTransport
+class StdioClientTransport
+class HttpClientStreamableHttpTransport
+class HttpClientSseClientTransport
+
+McpTransport <|-- McpClientTransport
+McpClientTransport <|-- StdioClientTransport
+McpClientTransport <|-- HttpClientStreamableHttpTransport
+McpClientTransport <|-- HttpClientSseClientTransport
+
+@enduml

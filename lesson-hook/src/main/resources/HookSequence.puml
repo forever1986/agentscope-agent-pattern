@@ -1,0 +1,9 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+autonumber
+
+ReActAgent -> StructuredOutputCapableAgent: ReActAgent构造方法调用了\n StructuredOutputCapableAgent的构造方法
+StructuredOutputCapableAgent -> AgentBase: StructuredOutputCapableAgent\n 的构造方法调用了AgentBase的构造方法
+
+@enduml

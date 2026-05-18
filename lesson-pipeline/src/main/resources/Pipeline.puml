@@ -1,0 +1,16 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+interface Pipeline
+class SequentialPipeline
+class FanoutPipeline
+class ComposedSequentialPipeline
+class Pipelines
+
+Pipeline <|-- SequentialPipeline
+Pipeline <|-- FanoutPipeline
+Pipeline <|-- ComposedSequentialPipeline
+Pipeline <- Pipelines: <<create>> 创建
+
+
+@enduml

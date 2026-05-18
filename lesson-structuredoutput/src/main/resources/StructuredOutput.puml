@@ -1,0 +1,20 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+autonumber
+
+CallableAgent -> AgentBase: CallableAgent的call(msgs, structuredModel)\n 调用AgentBase的call(msgs, structuredModel)
+AgentBase -> StructuredOutputCapableAgent: AgentBase的call(msgs, structuredModel)方法调用\n StructuredOutputCapableAgent的doCall(msgs, structuredOutputClass)
+StructuredOutputCapableAgent -> StructuredOutputCapableAgent: StructuredOutputCapableAgent再调用内部的\n executeWithStructuredOutput(msgs, targetClass, schemaDesc)
+StructuredOutputCapableAgent -> ReActAgent: StructuredOutputCapableAgent的\n executeWithStructuredOutput(msgs, targetClass, schemaDesc)\n，这个方法会添加一个generate_response工具和一个Hook，\n 后续处理结构化数据，然后再调用ReActAgent的doCall(msgs)
+ReActAgent -> ReActAgent: ReActAgent再调用内部的\n executeIteration(iter)
+ReActAgent -> ReActAgent: ReActAgent再调用内部的\n reasoning(iter, ignoreMaxIters)
+ReActAgent -> ReActAgent: reasoning(iter, ignoreMaxIters)中调用完大模型之后，\n 则调用notifyPostReasoning(msg)回调钩子Hook
+ReActAgent -> StructuredOutputHook: notifyPostReasoning(msg)调用之前注册的\n 钩子StructuredOutputHook的onEvent(event)
+StructuredOutputHook -> StructuredOutputHook: StructuredOutputHook根据event类型\n 调用handlePostReasoning(event)
+StructuredOutputHook -> StructuredOutputHook: handlePostReasoning(event)判断不是工具调用，\n 则调用自身createReminderMessage(mode)
+StructuredOutputHook -> ReActAgent: createReminderMessage(mode)增加结构化提示词让其调用工具，\n 然后代码回到reasoning(iter, ignoreMaxIters)
+ReActAgent -> ReActAgent: reasoning(iter, ignoreMaxIters)处理StructuredOutputHook\n 加工后的message，继续回到第5步调用reasoning(iter, ignoreMaxIters)
+
+
+@enduml

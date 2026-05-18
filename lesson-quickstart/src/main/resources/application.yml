@@ -1,0 +1,8 @@
+agentscope:
+  dashscope:
+    api-key: ${DASHSCOPE_API_KEY}
+    modelName: ${QWEN_MODEL}
+    stream: false
+  agent:
+    enabled: true
+    name: my-assistant

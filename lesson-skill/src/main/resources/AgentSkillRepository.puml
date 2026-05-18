@@ -1,0 +1,17 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+interface AgentSkillRepository
+class ClasspathSkillRepository
+class FileSystemSkillRepository
+class GitSkillRepository
+class NacosSkillRepository
+class MysqlSkillRepository
+
+AgentSkillRepository <|-- ClasspathSkillRepository
+AgentSkillRepository <|-- FileSystemSkillRepository
+AgentSkillRepository <|-- GitSkillRepository
+AgentSkillRepository <|-- NacosSkillRepository
+AgentSkillRepository <|-- MysqlSkillRepository
+
+@enduml

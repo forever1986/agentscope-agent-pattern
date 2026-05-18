@@ -1,0 +1,15 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+autonumber
+
+AutoContextHook -> AutoContextHook: AutoContextHook的onEvent()方法监听PreReasoningEvent，\n 触发则调用自身的handlePreReasoning()方法
+AutoContextHook -> AutoContextMemory: AutoContextHook的handlePreReasoning()方法触发压缩，\n 则调用AutoContextHook的compressIfNeeded()方法
+AutoContextMemory -> AutoContextMemory: 触发策略1，则调用自身的\n summaryToolsMessages()
+AutoContextMemory -> AutoContextMemory: 触发策略2，则调用自身的\n offloadingLargePayload()
+AutoContextMemory -> AutoContextMemory: 触发策略3，则调用自身的\n offloadingLargePayload()
+AutoContextMemory -> AutoContextMemory: 触发策略4，则调用自身的\n summaryPreviousRoundMessages()
+AutoContextMemory -> AutoContextMemory: 触发策略5，则调用自身的\n summaryCurrentRoundLargeMessages()
+AutoContextMemory -> AutoContextMemory: 触发策略6，则调用自身的\n summaryCurrentRoundMessages()
+
+@enduml

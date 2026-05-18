@@ -1,0 +1,15 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+autonumber
+
+AguiRestController -> AguiMvcController: AguiRestController的run()方法\n调用AguiMvcController的handle()方法
+AguiMvcController -> AguiMvcController: AguiMvcController的handle()方法\n调用自身的handleInternal()方法
+AguiMvcController -> AguiRequestProcessor: AguiMvcController的handleInternal()方法\n调用AguiRequestProcessor的process()方法
+AguiRequestProcessor -> DefaultAgentResolver: AguiRequestProcessor的process()方法调用\nDefaultAgentResolver的resolveAgent()方法获取agent
+DefaultAgentResolver -> AguiAgentRegistry: DefaultAgentResolver中调用AguiAgentRegistry获取agent
+DefaultAgentResolver <-- AguiAgentRegistry: AguiAgentRegistry返回agent
+AguiRequestProcessor <-- DefaultAgentResolver: DefaultAgentResolver返回agent
+AguiRequestProcessor -> AguiAgentAdapter: AguiRequestProcessor的handleInternal()方法\n调用AguiAgentAdapter的run()方法
+AguiAgentAdapter -> Agent: AguiAgentAdapter的run()方法调用Agent的stream()方法
+@enduml

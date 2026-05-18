@@ -1,0 +1,28 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+interface CallableAgent
+interface StreamableAgent
+interface ObservableAgent
+interface Agent
+interface StateModule
+abstract class AgentBase
+class ReActAgent
+class A2aAgent
+class StructuredOutputCapableAgent
+class StudioUserAgent
+class UserAgent
+
+
+CallableAgent <|-- Agent
+StreamableAgent <|-- Agent
+ObservableAgent <|-- Agent
+Agent <|-- AgentBase
+StateModule <|-- AgentBase
+StructuredOutputCapableAgent <|-- ReActAgent
+AgentBase <|-- A2aAgent
+AgentBase <|-- StructuredOutputCapableAgent
+AgentBase <|-- StudioUserAgent
+AgentBase <|-- UserAgent
+
+@enduml

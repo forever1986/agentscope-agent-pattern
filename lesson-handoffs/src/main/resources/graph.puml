@@ -1,0 +1,33 @@
+@startuml expander_flow
+skinparam usecaseFontSize 14
+skinparam usecaseStereotypeFontSize 12
+skinparam hexagonFontSize 14
+skinparam hexagonStereotypeFontSize 12
+title "expander flow"
+footer
+
+powered by spring-ai-alibaba
+end footer
+circle start<<input>> as __START__
+circle stop as __END__
+usecase "sales_agent"<<Node>>
+usecase "support_agent"<<Node>>
+hexagon "check state" as condition1<<Condition>>
+hexagon "check state" as condition2<<Condition>>
+hexagon "check state" as startcondition<<Condition>>
+"__START__" .down.> "startcondition"
+"startcondition" .down.> "sales_agent"
+'"__START__" .down.> "sales_agent"
+"startcondition" .down.> "support_agent"
+'"__START__" .down.> "support_agent"
+"sales_agent" .down.> "condition1"
+"condition1" .down.> "__END__": "__end__"
+'"sales_agent" .down.> "__END__": "__end__"
+"condition1" .down.> "support_agent"
+'"sales_agent" .down.> "support_agent"
+"support_agent" .down.> "condition2"
+"condition2" .down.> "__END__": "__end__"
+'"support_agent" .down.> "__END__": "__end__"
+"condition2" .down.> "sales_agent"
+'"support_agent" .down.> "sales_agent"
+@enduml

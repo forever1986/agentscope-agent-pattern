@@ -1,0 +1,17 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+interface AgentTool
+class McpTool
+class SchemaOnlyTool
+class ShellCommandTool
+class SubAgentTool
+
+AgentTool <|-- McpTool
+AgentTool <|-- SchemaOnlyTool
+AgentTool <|-- ShellCommandTool
+AgentTool <|-- SubAgentTool
+
+
+
+@enduml

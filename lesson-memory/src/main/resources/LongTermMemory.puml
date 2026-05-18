@@ -1,0 +1,11 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+interface LongTermMemory
+class Mem0LongTermMemory
+class ReMeLongTermMemory
+
+LongTermMemory <|-- ReMeLongTermMemory
+LongTermMemory <|-- Mem0LongTermMemory
+
+@enduml

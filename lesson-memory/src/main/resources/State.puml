@@ -1,0 +1,14 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+interface State
+class AgentMetaState
+class ToolkitState
+class PlanNotebookState
+
+State <|-- AgentMetaState
+State <|-- ToolkitState
+State <|-- PlanNotebookState
+
+
+@enduml

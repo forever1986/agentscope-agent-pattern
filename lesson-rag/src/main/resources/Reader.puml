@@ -1,0 +1,23 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+
+interface Reader
+abstract class AbstractChunkingReader
+class ExternalApiReader
+class ImageReader
+class PDFReader
+class TextReader
+class TikaReader
+class WordReader
+
+
+Reader <|-- AbstractChunkingReader
+AbstractChunkingReader <|-- ExternalApiReader
+AbstractChunkingReader <|-- ImageReader
+AbstractChunkingReader <|-- PDFReader
+AbstractChunkingReader <|-- TextReader
+AbstractChunkingReader <|-- TikaReader
+AbstractChunkingReader <|-- WordReader
+
+@enduml

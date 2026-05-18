@@ -1,0 +1,17 @@
+@startuml
+'https://plantuml.com/class-diagram
+abstract class Agent
+abstract class FlowAgent
+class LoopAgent
+class LlmRoutingAgent
+class ParallelAgent
+class SequentialAgent
+
+Agent <|-- FlowAgent
+FlowAgent <|-- SequentialAgent
+FlowAgent <|-- ParallelAgent
+FlowAgent <|-- LoopAgent
+FlowAgent <|-- LlmRoutingAgent
+
+
+@enduml

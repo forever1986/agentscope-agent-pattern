@@ -1,0 +1,11 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+interface McpClientWrapper
+class McpSyncClientWrapper
+class McpAsyncClientWrapper
+
+McpClientWrapper <|-- McpSyncClientWrapper
+McpClientWrapper <|-- McpAsyncClientWrapper
+
+@enduml

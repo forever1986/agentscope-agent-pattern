@@ -1,0 +1,38 @@
+@startuml expander_flow
+skinparam usecaseFontSize 14
+skinparam usecaseStereotypeFontSize 12
+skinparam hexagonFontSize 14
+skinparam hexagonStereotypeFontSize 12
+title "expander flow"
+footer
+
+end footer
+circle start<<input>> as __START__
+circle stop as __END__
+usecase "loop_sql_refinement_agent"<<Node>>
+usecase "_loop_init__873634936"<<Node>>
+usecase "_loop_dispatch__873634936"<<Node>>
+package sql_agent [
+{{
+circle " " as __START__
+circle exit as __END__
+usecase "sql_agent"<<Node>>
+usecase "sql_generator"<<Node>>
+usecase "sql_rater"<<Node>>
+"__START__" -down-> "sql_agent"
+"sql_agent" -down-> "sql_generator"
+"sql_generator" -down-> "sql_rater"
+"sql_rater" -down-> "__END__"
+}}
+]
+hexagon "check state" as condition1<<Condition>>
+"__START__" -down-> "loop_sql_refinement_agent"
+"loop_sql_refinement_agent" -down-> "_loop_init__873634936"
+"_loop_init__873634936" -down-> "_loop_dispatch__873634936"
+"sql_agent" -down-> "_loop_dispatch__873634936"
+"_loop_dispatch__873634936" .down.> "condition1"
+"condition1" .down.> "__END__": "break"
+'"_loop_dispatch__873634936" .down.> "__END__": "break"
+"condition1" .down.> "sql_agent": "continue"
+'"_loop_dispatch__873634936" .down.> "sql_agent": "continue"
+@enduml

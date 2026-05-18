@@ -1,0 +1,13 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+interface StateModule
+interface Memory
+class InMemoryMemory
+class AutoContextMemory
+
+StateModule <|-- Memory
+Memory <|-- InMemoryMemory
+Memory <|-- AutoContextMemory
+
+@enduml

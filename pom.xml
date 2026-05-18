@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>org.example</groupId>
+    <artifactId>agentscope-agent-pattern</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <packaging>pom</packaging>
+    <modules>
+        <module>lesson-quickstart</module>
+        <module>lesson-pipeline</module>
+        <module>lesson-router</module>
+        <module>lesson-tool</module>
+        <module>lesson-plan</module>
+        <module>lesson-hook</module>
+        <module>lesson-memory</module>
+        <module>lesson-structuredoutput</module>
+        <module>lesson-reflection</module>
+        <module>lesson-model</module>
+        <module>lesson-thinking</module>
+        <module>lesson-msghub</module>
+        <module>lesson-mcp</module>
+        <module>lesson-HumanInTheLoop</module>
+        <module>lesson-rag</module>
+        <module>lesson-a2a</module>
+        <module>lesson-guardrail</module>
+        <module>lesson-error</module>
+        <module>lesson-studio</module>
+        <module>lesson-agui</module>
+        <module>lesson-skill</module>
+        <module>lesson-skill-advance</module>
+        <module>lesson-agent-as-tool</module>
+        <module>lesson-handoffs</module>
+        <module>lesson-subagent</module>
+        <module>lesson-msg</module>
+        <module>lesson-openclaw</module>
+    </modules>
+
+    <properties>
+        <maven.compiler.source>21</maven.compiler.source>
+        <maven.compiler.target>21</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <agentscope.version>1.0.11</agentscope.version>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>io.agentscope</groupId>
+            <artifactId>agentscope</artifactId>
+            <version>${agentscope.version}</version>
+        </dependency>
+    </dependencies>
+
+</project>

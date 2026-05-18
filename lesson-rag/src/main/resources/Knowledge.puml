@@ -1,0 +1,17 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+interface Knowledge
+class SimpleKnowledge
+class BailianKnowledge
+class DifyKnowledge
+class HayStackKnowledge
+class RAGFlowKnowledge
+
+Knowledge <|-- SimpleKnowledge
+Knowledge <|-- BailianKnowledge
+Knowledge <|-- DifyKnowledge
+Knowledge <|-- HayStackKnowledge
+Knowledge <|-- RAGFlowKnowledge
+
+@enduml

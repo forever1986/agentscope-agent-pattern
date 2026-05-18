@@ -1,0 +1,21 @@
+agentscope:
+  dashscope:
+    api-key: ${DASHSCOPE_API_KEY}
+    modelName: ${QWEN_MODEL}
+    stream: false
+  agent:
+    enabled: true
+    name: my-assistant
+  a2a:
+    server:
+      enabled: true
+      card:
+        name: My Assistant
+        description: 基于 AgentScope 的智能助手
+        skills:
+          - id: get_weather
+            name: Get Weather
+            description: Get current weather information for a city.
+            tags: [ weather ]
+            examples:
+              - What's the weather like in Hangzhou today?

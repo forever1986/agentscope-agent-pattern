@@ -1,0 +1,19 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+autonumber
+
+CallableAgent -> AgentBase: call方法定义来自CallableAgent\n 但实际上是AgentBase的call方法
+AgentBase -> ReActAgent: call方法中调用\n ReActAgent的doCall方法
+ReActAgent -> ReActAgent: doCall方法调用自身的\n executeIteration方法
+ReActAgent -> ReActAgent: executeIteration方法调用\n 自身的reasoning方法
+ReActAgent -> Model: reasoning方法调用\n Model的stream方法
+Model -> ChatModelBase: stream方法实际是调用抽象实现类\n ChatModelBase的stream方法
+ChatModelBase -> ChatModelBase: stream方法调用\n 自身的doStream方法
+ChatModelBase -> DashScopeChatModel: doStream方法实际是调用实现类\n DashScopeChatModel的doStream方法
+DashScopeChatModel -> DashScopeChatModel: doStream方法调用自身的\n streamWithHttpClient方法
+DashScopeChatModel -> httpClient: streamWithHttpClient方法调用\n httpClient的stream或者call方法
+httpClient -> ReActAgent: 结果会返回到ReActAgent的\n reasoning方法，再次进入第5步循环
+
+
+@enduml

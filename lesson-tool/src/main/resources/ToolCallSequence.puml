@@ -1,0 +1,17 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+autonumber
+
+ReActAgent -> ReActAgent: 在推理方法reasoning中\n调用自身的acting方法
+ReActAgent -> ReActAgent: acting方法又调用自身\n的executeToolCalls方法
+ReActAgent -> Toolkit: executeToolCalls方法中\n调用Toolkit的callTools方法
+Toolkit -> ToolExecutor: callTools方法中调用\nToolExecutor的executeAll方法
+ToolExecutor -> ToolExecutor: executeAll方法调用自身的\n executeWithInfrastructure方法
+ToolExecutor -> ToolExecutor: executeWithInfrastructure方法\n还是调用自身的execute方法
+ToolExecutor -> ToolExecutor: execute方法再次调用\n自身的executeCore方法
+ToolExecutor -> AgentTool: executeCore方法调用\nAgentTool的callAsync方法
+AgentTool -> ReActAgent: 前面第3步acting方法调用完工具\n 后进行执行ReActAgent的acting方法
+
+
+@enduml

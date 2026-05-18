@@ -1,0 +1,12 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+class ReActAgentWithBuilderRunner
+abstract BaseReActAgentRunner
+interface AgentRunner
+
+AgentRunner <|-- BaseReActAgentRunner
+BaseReActAgentRunner <|-- ReActAgentWithBuilderRunner
+
+
+@enduml

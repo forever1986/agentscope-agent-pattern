@@ -1,0 +1,9 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+autonumber
+
+SessionManager -> StateModule: SessionManager的saveSession()方法，\n 实际是调用每个组件StateModule的saveTo()方法
+StateModule --> Session: StateModule的saveTo()方法，\n 再调用Session的save()决定存储在什么持久化下
+
+@enduml

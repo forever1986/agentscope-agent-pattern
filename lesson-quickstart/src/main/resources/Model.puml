@@ -1,0 +1,18 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+interface Model
+abstract class  ChatModelBase
+class DashScopeChatModel
+
+
+Model <|-- ChatModelBase
+ChatModelBase <|-- DashScopeChatModel
+ChatModelBase <|-- OpenAIChatModel
+ChatModelBase <|-- AnthropicChatModel
+ChatModelBase <|-- GeminiChatModel
+ChatModelBase <|-- OllamaChatModel
+ChatModelBase <|-- TrinityModelAdapter
+
+
+@enduml

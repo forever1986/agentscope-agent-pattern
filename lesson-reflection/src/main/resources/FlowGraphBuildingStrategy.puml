@@ -1,0 +1,19 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+interface FlowGraphBuildingStrategy
+abstract class AbstractFlowGraphBuildingStrategy
+class SequentialGraphBuildingStrategy
+class ParallelGraphBuildingStrategy
+class LoopGraphBuildingStrategy
+class RoutingGraphBuildingStrategy
+class ConditionalGraphBuildingStrategy
+
+FlowGraphBuildingStrategy <|-- AbstractFlowGraphBuildingStrategy
+AbstractFlowGraphBuildingStrategy <|-- SequentialGraphBuildingStrategy
+AbstractFlowGraphBuildingStrategy <|-- ParallelGraphBuildingStrategy
+AbstractFlowGraphBuildingStrategy <|-- LoopGraphBuildingStrategy
+AbstractFlowGraphBuildingStrategy <|-- RoutingGraphBuildingStrategy
+AbstractFlowGraphBuildingStrategy <|-- ConditionalGraphBuildingStrategy
+
+@enduml

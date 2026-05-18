@@ -1,0 +1,9 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+class ReadFileTool
+class WriteFileTool
+class DashScopeMultiModalTool
+class OpenAIMultiModalTool
+
+@enduml

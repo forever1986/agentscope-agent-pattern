@@ -1,0 +1,9 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+interface SessionKey
+class SimpleSessionKey
+
+SessionKey <|-- SimpleSessionKey
+
+@enduml

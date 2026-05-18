@@ -1,0 +1,38 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+abstract class HookEvent
+class PreCallEvent
+class PostCallEvent
+class ErrorEvent
+abstract class ReasoningEvent
+abstract class ActingEvent
+abstract class SummaryEvent
+
+class PreReasoningEvent
+class PostReasoningEvent
+class ReasoningChunkEvent
+class PreActingEvent
+class PostActingEvent
+class ActingChunkEvent
+class PreSummaryEvent
+class SummaryChunkEvent
+class PostSummaryEvent
+
+HookEvent <|-- PreCallEvent
+HookEvent <|-- PostCallEvent
+HookEvent <|-- ErrorEvent
+HookEvent <|-- ReasoningEvent
+HookEvent <|-- ActingEvent
+HookEvent <|-- SummaryEvent
+ReasoningEvent <|-- PreReasoningEvent
+ReasoningEvent <|-- ReasoningChunkEvent
+ReasoningEvent <|-- PostReasoningEvent
+ActingEvent <|-- PreActingEvent
+ActingEvent <|-- ActingChunkEvent
+ActingEvent <|-- PostActingEvent
+SummaryEvent <|-- PreSummaryEvent
+SummaryEvent <|-- SummaryChunkEvent
+SummaryEvent <|-- PostSummaryEvent
+
+@enduml

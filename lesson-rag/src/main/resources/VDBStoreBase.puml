@@ -1,0 +1,17 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+interface VDBStoreBase
+class InMemoryStore
+class MilvusStore
+class PgVectorStore
+class ElasticsearchStore
+class QdrantStore
+
+VDBStoreBase <|-- InMemoryStore
+VDBStoreBase <|-- MilvusStore
+VDBStoreBase <|-- PgVectorStore
+VDBStoreBase <|-- ElasticsearchStore
+VDBStoreBase <|-- QdrantStore
+
+@enduml
