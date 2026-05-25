@@ -35,7 +35,6 @@
         <module>lesson-handoffs</module>
         <module>lesson-subagent</module>
         <module>lesson-msg</module>
-        <module>lesson-openclaw</module>
     </modules>
 
     <properties>
